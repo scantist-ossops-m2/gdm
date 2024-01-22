@@ -3023,7 +3023,7 @@ filter_extensions (const char * const *extensions)
 
         for (i = 0; extensions[i] != NULL; i++) {
                 for (j = 0; gdm_supported_pam_extensions[j] != NULL; j++) {
-                        if (g_strcmp0 (extensions[i], gdm_supported_pam_extensions[j]) == 0) {
+                        if (g_str_has_prefix (gdm_supported_pam_extensions[j], extensions[i]) == 0) {
                                 g_ptr_array_add (array, g_strdup (gdm_supported_pam_extensions[j]));
                                 break;
                         }
